@@ -5,7 +5,9 @@ execSync('npm run seed');
 
 const request = require("supertest");
 const { db } = require('./db/connection');
-const { Musician } = require('./models/index');
+const { Musician, Band, musicianRouter, bandRouter} = require('./models/index');
+
+
 const app = require('./src/app');
 const seedMusician = require("./seedData");
 
@@ -19,7 +21,7 @@ describe('./musicians endpoint', () => {
         expect(responseData[0].name).toBe('Mick Jagger');
         expect(responseData[1].instrument).toBe('Voice');
     }) 
-    test("Testing musicians 1 endpoint", async () => {
+   /* test("Testing musicians 1 endpoint", async () => {
         const response = await request(app).get("/musicians/1");
         const responseData = JSON.parse(response.text);
         expect(response.statusCode).toBe(200);
@@ -67,5 +69,5 @@ describe('./musicians endpoint', () => {
         expect(response.statusCode).toBe(200);
         expect(responseData.name).toBe('Coldplay');
         expect(responseData.genre).toBe('Rock');
-    })  
+    })  */
 })

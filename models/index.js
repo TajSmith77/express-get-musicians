@@ -1,10 +1,13 @@
-const Band = require('./Band')
-const Musician = require('./Musician')
+const {Band, bandRouter} = require('../routes/Band')
+const {Musician, musicianRouter} = require('../routes/Musician')
 
-Musician.belongsTo(Band)
 Band.hasMany(Musician)
+Musician.belongsTo(Band)
+
 
 module.exports = {
     Band,
-    Musician
+    Musician,
+    bandRouter,
+    musicianRouter
 };
